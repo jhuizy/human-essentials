@@ -1,0 +1,32 @@
+image:
+  file: .gitpod.Dockerfile
+
+ports:
+  # Rails server
+  - port: 3000
+    onOpen: open-preview
+  # PostgreSQL server
+  - port: 5432
+    onOpen: ignore
+
+tasks:
+  - init: >
+      cp config/database.yml.example config/database.yml &&
+      bin/setup &&
+      bundle exec rake db:seed
+    command: >
+      rails server -b 0.0.0.0
+
+# Enable prebuilds of your project to enable faster workspace start times.
+# https://www.gitpod.io/docs/prebuilds/#configure-the-github-app
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true
+    pullRequestsFromForks: true
+    addCheck: true
+
+vscode:
+  extensions:
+    - rebornix.ruby
