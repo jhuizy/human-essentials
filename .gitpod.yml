@@ -10,12 +10,20 @@ ports:
     onOpen: ignore
 
 tasks:
-  - init: >
-      cp config/database.yml.example config/database.yml &&
+  - name: Setup
+    init: >
+      cp .env.example .env &&
       bin/setup &&
-      bundle exec rake db:seed
+      bundle exec rake db:seed &&
+      gp sync-done setup
+  - name: Rails
     command: >
+      gp sync-await setup &&
       rails server -b 0.0.0.0
+  - name: Webpack
+    command: >
+      gp sync-await setup &&
+      webpack-dev-server
 
 # Enable prebuilds of your project to enable faster workspace start times.
 # https://www.gitpod.io/docs/prebuilds/#configure-the-github-app
