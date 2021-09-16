@@ -39,6 +39,12 @@ This project took what we built for the [Portland Diaper Bank in 2016](https://g
 
 ## Development
 
+### Gitpod
+
+To run this application in gitpod, simply click the button below
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/rubyforgood/human-essentials)
+
 ### Installation Instructions
 
 The `installation.md` file ([https://github.com/rubyforgood/diaper/blob/main/installation.md](https://github.com/rubyforgood/diaper/blob/main/installation.md)) has detailed instructions for installation and configuration of an Ubuntu host to run this software. Although there is not a document for Mac OS, it may be helpful for that as well.
